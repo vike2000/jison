@@ -10,76 +10,26 @@
     <p>
     Load an example:
     <select id="examples">
-      <option value="calculator.jison" selected="true">Calculator</option>
+      <option value="regexp.jison" selected="true">RegExp (incomplete)</option>
+      <option value="calculator.jison">Calculator</option>
       <option value="lambdacalc.jison">Lambda Calculus</option>
       <!--<option value="ansic.jison">ANSI C</option>-->
     </select>
     </p>
 
-    <textarea id="grammar" rows="20" cols="80">
-/* description: Parses end executes mathematical expressions. */
-
-/* lexical grammar */
-%lex
-%%
-
-\s+                   /* skip whitespace */
-[0-9]+("."[0-9]+)?\b  return 'NUMBER'
-"*"                   return '*'
-"/"                   return '/'
-"-"                   return '-'
-"+"                   return '+'
-"^"                   return '^'
-"("                   return '('
-")"                   return ')'
-"PI"                  return 'PI'
-"E"                   return 'E'
-<<EOF>>               return 'EOF'
-.                     return 'INVALID'
-
-/lex
-
-/* operator associations and precedence */
-
-%left '+' '-'
-%left '*' '/'
-%left '^'
-%left UMINUS
-
-%start expressions
-
-%% /* language grammar */
-
-expressions
-    : e EOF
-        {return $1;}
-    ;
-
-e
-    : e '+' e
-        {$$ = $1+$3;}
-    | e '-' e
-        {$$ = $1-$3;}
-    | e '*' e
-        {$$ = $1*$3;}
-    | e '/' e
-        {$$ = $1/$3;}
-    | e '^' e
-        {$$ = Math.pow($1, $3);}
-    | '-' e %prec UMINUS
-        {$$ = -$2;}
-    | '(' e ')'
-        {$$ = $2;}
-    | NUMBER
-        {$$ = Number(yytext);}
-    | E
-        {$$ = Math.E;}
-    | PI
-        {$$ = Math.PI;}
-    ;
-</textarea>
+    <textarea id="grammar" rows="20" cols="80">Loading...</textarea>
     <p>
-      <button id="process_btn">Generate Parser</button>
+      Parser type: <select id="type">
+        <option value="lr0">LR(0)</option>
+        <option value="slr">SLR(1)</option>
+        <option value="lalr" selected="true">LALR(1)</option>
+        <option value="lr">LR(1)</option>
+        <option value="ll">LL(1)</option>
+      </select>
+      <small>* WARNING: LR(1) may take considerable time to execute for large/ambigous grammars.</small>
+    </p>
+    <p>
+      <button id="process_btn">Process Grammar</button>
       <button id="download_btn" disabled>Download</button>
     </p>
     <pre id="gen_out"></pre>
@@ -91,7 +41,7 @@ e
 
     <div id="parsing">
       <h2>Test Your Parser</h2>
-      <textarea id="source" rows="8" cols="80">5*PI^2</textarea><br/>
+      <textarea id="source" rows="8" cols="80">e.g. ^(?:(\[\])|(.*))$ or 5*PI^2</textarea><br/>
       <button id="parse_btn">Parse</button>
     </div>
     <pre id="out"></pre>

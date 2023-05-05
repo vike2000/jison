@@ -24,12 +24,12 @@ $(document).ready(function () {
                 $("#grammar").val(data);
                 $(document.body).removeClass("loading");
             });
-    });
+    }).change();
 
 });
 
 function processGrammar () {
-    var type = "lalr";
+    var type = $("#type")[0].options[$("#type")[0].selectedIndex].value || "slr";
 
     var grammar = $("#grammar").val();
     try {

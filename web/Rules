@@ -10,11 +10,13 @@
 #   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
 #   because “*” matches zero or more characters.
 
+compile '/jison/partials/*' do
+  write nil
+end
 
 compile '/jison/assets/*' do
   # do nothing
 end
-
 
 compile '/jison/demos/*/' do
   layout 'default'
@@ -37,6 +39,16 @@ compile '*' do
   filter :kramdown
   layout 'default'
 end
+
+#compile '/jison/*' do
+#  # do nothing
+#end
+#compile '/jison/assets/js/*' do
+#  # do nothing
+#end
+#compile '/jison/assets/js/lib/*' do
+#  # do nothing
+#end
 
 ### Routing #########################################################
 

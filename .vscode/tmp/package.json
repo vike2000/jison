@@ -1,0 +1,15 @@
+{
+  "name": "tmp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "regexp.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "com.dyn-o-saur.bluelephant.js.tk": "bitbucket:vike/com.dyn-o-saur.bluelephant.js.tk",
+    "underscore": "^1.13.4"
+  }
+}

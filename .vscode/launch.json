@@ -1,0 +1,52 @@
+{
+	// Use IntelliSense to learn about possible attributes.
+	// Hover to view descriptions of existing attributes.
+	// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Test regexp.jison",
+			"preLaunchTask": "Prepare regexp.jison",
+			"program": "lib/cli.js",
+			"args": ["-t", "-p", "lalr", "examples/regexp.jison"]
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Test regexp.jison with examples/regexp.js and macports",
+			"preLaunchTask": "Prepare regexp.jison",
+			"program": "examples/regexp.js",
+			"args": ["-t", "-m", "js-global-no-Parser", "examples/regexp.jison"]
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Launch regexp with macports",
+			"preLaunchTask": "Prepare regexp",
+			"program": ".vscode/tmp/regexp.js",
+			"args": [".vscode/tmp/regexp.input"]
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Launch regexp with examples/regexp.js and macports",
+			"preLaunchTask": "Build regexp with examples/regexp.js and macports",
+			"program": ".vscode/launch/Launch regexp with examples:regexp.js and macports.js",
+			"args": ["../tmp/regexp.js", ".vscode/tmp/regexp.input", ".vscode/tmp/regexp.json"],
+			"outputCapture": "std",
+//			"stopOnEntry": true,
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Launch regexp.min with examples/regexp.js and macports",
+			"preLaunchTask": "Build regexp.min with examples/regexp.js and macports",
+			"program": ".vscode/launch/Launch regexp with examples:regexp.js and macports.js",
+			"args": ["../tmp/regexp.js", ".vscode/tmp/regexp.input", ".vscode/tmp/regexp.json"],
+			"outputCapture": "std",
+//			"stopOnEntry": true,
+		},
+	]
+}

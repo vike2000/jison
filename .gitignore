@@ -1,7 +1,16 @@
-.DS_Store
+.vscode/tmp/*
+!.vscode/tmp/package.json
+
+web/content/assets/js/jison.js
+
 node_modules
+
+# vike
+*—[0-9]*
+
+# macOS
+.DS_Store
 
 # Editor backup files
 *.bak
 *~
-web/content/assets/js/jison.js

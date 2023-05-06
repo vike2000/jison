@@ -1,7 +1,7 @@
 //cspell:ignore metachar
 /*
 : bash :&&(cd /∂/git/jison &&: "cuttable external deps on ~vike/.bash_profile (vpath vbash base) and ~vike/shell (resp.): _vnq and tiedye.awk; replaceable external dep on colordiff: last if((entities_are_calls)) with content of ´then´; s/min=1/min=0/ to disable uglifyjs" //cspell:ignore jison metachars uglifyjs colordiff tiedye :&& min=1 && export conflict_handling=cat && for permute in 0 1;do for entities_are_calls in 1 0;do for empty_class_opens in 1 $(((entities_are_calls))||echo 0);do export empty_class_opens && .vscode/tasks/"Create regexp.input".sh && _vnq_color=magenta _vnq permute=$permute permutations_use_metachars=$((0&&!entities_are_calls)) entities_are_calls=$entities_are_calls calls_use_metachars=0 empty_class_opens=$empty_class_opens .vscode/tasks/"Create regexp.json".sh && require_bluelephant_excerpt=1 uglifyjs=$min .vscode/tasks/"Build .vscode:tmp:regexp.js with examples:regexp.js and macports".sh && output+=("$(.vscode/launch/"Launch regexp with examples:regexp.js and macports".js ../tmp/regexp$(((!min))||echo .min).js .vscode/tmp/regexp.input .vscode/tmp/regexp.json|(((!entities_are_calls))&&cat||tiedye.awk -- -l))")||break 3; if((entities_are_calls));then printf %s\\n "${output[${#output[@]}-1]}" ;else ((((permute))||colordiff -u --label "input" --label "output" <(cat .vscode/tmp/regexp.input;echo) <(printf %s\\n "${output[${#output[@]}-1]}")) && (((!permute||empty_class_opens))||colordiff -u --label "previous output" --label "current output" <(printf %s\\n "${output[${#output[@]}-2]}") <(printf %s\\n "${output[${#output[@]}-1]}"))) && printf %s\\n "${output[${#output[@]}-1]}" ;fi ;unset conflict_handling ;done;done;done)
-: bash :&&(cd /∂/git/jison &&: "cuttable external deps on ~vike/.bash_profile (vpath vbash base) and ~vike/shell (resp.): _vct and last two (((!min))||…); uglyfyjs can be cut in the same way and all min can be disabled by substituting min=1 with min=0 next; also gsed is linux sed via macports" //cspell:ignore jison uglyfyjs tiedye :&& min=1 && module_type=js-global-no-Parser .vscode/tasks/"Build .vscode:tmp:regexp.js with examples:regexp.js and macports".sh && out=.vscode/tmp/regexp.js && gsed -i -E -e '/(.slice.call)\((arguments), 1\)/s//\1(\2, 2)/' -e '/(sharedState) = \{ (yy): \{\} \}/s//\1 = {\2: arguments[1]||{}}/' "$out" && (((!min))||uglifyjs -m --keep-fnames --source-map "includeSources=true" -o .vscode/tmp/regexp.min.js "$out") && for f in .vscode/tmp/regexp.js $(((!min))||echo .vscode/tmp/regexp.min.js);do gsed -i -E -e $'1s/^/''_.extend(		function VRE(_yy_	){this.yy=_yy_||{}},{prototype:(function(){/' -e $'$s/$/return parser})()})/' "$f";done && _vct less "$out" && (((!min))||(gsed -i -E -e '/\b(var parser|function m|function permute|function a|var lexer)\b/s//\n\t\t\t\t\t\t\t\t\t&/g' -e '/,(performAction|table|defaultActions|more|showPosition|next|performAction|rules|conditions):/s//\n\t\t\t\t\t\t\t\t\t\t&/g' .vscode/tmp/regexp.min.js)) && (((!min))||_vct tiedye_less -X -- -- -- -j $(: -w $((COLUMNS-16)) :) .vscode/tmp/regexp.min.js) && (((!min))||_vp pbcopy < .vscode/tmp/regexp.min.js))
+: bash :&&(cd /∂/git/jison &&: "cuttable external deps on ~vike/.bash_profile (vpath vbash base) and ~vike/shell (resp.): _vct and last two (((!min))||…); uglyfyjs can be cut in the same way and all min can be disabled by substituting min=1 with min=0 next; also gsed is linux sed via macports" //cspell:ignore jison uglyfyjs tiedye :&& min=1 && module_type=js-global-no-Parser .vscode/tasks/"Build .vscode:tmp:regexp.js with examples:regexp.js and macports".sh && out=.vscode/tmp/regexp.js && gsed -i -E -e '/(.slice.call)\((arguments), 1\)/s//\1(\2, 2)/' -e '/(sharedState) = \{ (yy): \{\} \}/s//\1 = {\2: arguments[1]||{}}/' "$out" && (((!min))||uglifyjs -m --keep-fnames --source-map "includeSources=true" -o .vscode/tmp/regexp.min.js "$out") && for f in .vscode/tmp/regexp.js $(((!min))||echo .vscode/tmp/regexp.min.js);do gsed -i -E -e $'1s/^/'$'_.extend(function VRE(_yy_\t){this.yy=_yy_||{}},{prototype:(function(){/' -e $'$s/$/return parser})()})/' "$f";done && _vct less "$out" && (((!min))||(gsed -i -E -e '/\b(var parser|function m|function permute|function a|var lexer)\b/s//\n\t\t\t\t\t\t\t\t\t&/g' -e '/,(performAction|table|defaultActions|more|showPosition|next|performAction|rules|conditions):/s//\n\t\t\t\t\t\t\t\t\t\t&/g' .vscode/tmp/regexp.min.js)) && (((!min))||_vct tiedye_less -X -- -- -- -j $(: -w $((COLUMNS-16)) :) .vscode/tmp/regexp.min.js) && (((!min))||_vp pbcopy < .vscode/tmp/regexp.min.js))
 */
 
 %lex
@@ -129,9 +129,10 @@
 				,																	name
 				,					function(					that
 				  ,											yy,								piece___)
-				  {												this
-				  .											yy
-				  =											yy;	this .splice									.apply
+				  {Object.defineProperty(						this
+					,									   'yy',{enumerable:false,value
+						:									yy})
+				  ;												this .splice									.apply
 					(											this,[0,0]															.concat([].slice.call(arguments,2)))}
 				, [					]))
 			,												yy																	]	.concat([].slice.call(arguments,2)))}
@@ -142,10 +143,7 @@
 			||											2>	yy.																						permute
 			)						return																											permutational
 		;							function																										f(							P,i)
-			{
-//			;		if(								(	i											.constructor==							  c	.s.	alternative)
-//				||									(	i											.constructor==							  c	.s.	permutations))
-			;		if(								(	i											.constructor==							  c	.s.	alternative)
+			{		if(								(	i											.constructor==							  c	.s.	alternative)
 				||									(	i											.constructor==							  c	.s.	permutations))
 				{																P=	[].concat.apply
 					(																[]
@@ -154,11 +152,12 @@
 					)}
 			 else	if(		'object'	==	typeof		i
 				)					for(var s=0;s<		i.length;s++)			P=																	f(							P,i[s])
-			;else	if(!(								i											.constructor==							  c	.s.	meta)
+			;else	if(!(								i											.constructor==							  c	.s.	meta) // porting to vre.php (bluelephant), this seems moot (`if(x is object);elseif(x instanceof meta)then do` would never `do`, right?)
 				)					for(var q=0;q<		P.length;q++)			P[q].push(i)
 			;						return																																		P}
-		;							return																											f(							[[]]
+		;var																	R								=									f(							[[]]
 			,																																		permutational)
+		;							return																											R
 		.													map(function		(v)
 			{return																(v)			.join('')})
 		.																					 join("\n")}
@@ -198,7 +197,7 @@
 	
 	;								function																											escaped			(	yy,	i)		{return!yy.permutations_use_metachars?u(yy,i):i}
 	;								function																											negative_class	(	yy,	i)		{for(var n=new RegExp(i.toString(0xa,{permute:false,entities_are_calls:false})),S=".?^!$~_",s=0;s<S.length;s++)if(S[s].match(n))break;return S[s]||"…"}
-	;								function																											positive_class	(	yy,	i)		{return a(yy,i.slice(1,-1)	.map(function(v){return p(yy,v)}))}
+	;								function																											positive_class	(	yy,	i)		{var S={};return a(yy,i.slice(1,-1).reduce(function(m,v){var P=p(yy,v);if('object'==typeof P){for(var s=0;s<P.length;s++)if(~(!S[P[s]]?S[P[s]]=-1:--S[P[s]]))delete P[s];if(P.length)m.push(P)}else if(~(!S[P]?S[P]=-1:--S[P]));else m.push(P);return m},[]))} // that you have to init before increment to avoid the ever false ana (for the purpose i commonly use and call nf - not_first) in js is quite annoying (the same goes for notice on uninit'd vars which i guess will be made intentional cpu panic in php9 following the promoting of such notices in php8 compared to earlier vers) - rant will never stop
 	;								function																											member_range	(	yy,	i)		{for(var P=[],	v=u(yy,i[0])[0].charCodeAt(0)
 			,																																															l=u(yy,i[2])[0].charCodeAt(0);v<=l;v++)P.push(String.fromCodePoint(v));return a(yy,P)}
 	;								function																											greedy			(	yy,	i)		{var P=[],l;switch(i[1].constructor) // `switch(true){case {a:{}}.a instanceof {a:{}}.b:a:{}}.a instanceof {a:{}}.c:}` throws TypeError ("Right-hand side of 'instanceof' is not an object") and is lengthier (than `switch({a:{}}.a.constructor){case {a:{}}.b:case {a:{}}.c:}`: a(c)=48+28*c > b(c)=44+14*c, for c ∈ ℕ) // in general: no instanceof cause-of: w/o parser.yy.permute permutations is undefined here (yet) // cspell:ignore instanceof

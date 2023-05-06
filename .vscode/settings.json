@@ -1,3 +1,7 @@
 {
-	"empty_class_opens": "1"
+	"empty_class_opens": "1",
+	"permute": "1",
+	"permutations_use_metachars": "0",
+	"entities_are_calls": "0",
+	"calls_use_metachars": "0",
 }

@@ -2,93 +2,93 @@
 	// See https://go.microsoft.com/fwlink/?LinkId=733558
 	// for the documentation about the tasks.json format
 	"version": "2.0.0",
-	"options": {"cwd": "${workspaceFolder}", "env": {
-		"empty_class_opens": "${config:empty_class_opens}", // vscode tasks env inheritance is impossible?
+	"options": {"cwd": "${workspaceFolder}", "env": { // vscode tasks env inheritance is impossible?
+		"empty_class_opens": "${config:empty_class_opens}",
+		"permute": "${config:permute}",
+		"permutations_use_metachars": "${config:permutations_use_metachars}",
+		"entities_are_calls": "${config:entities_are_calls}",
+		"calls_use_metachars": "${config:calls_use_metachars}",
 	}},
 	"tasks": [
 		{
 			"label": "Prepare regexp.jison",
-			"type": "shell",
-			"problemMatcher": [],
-			"command": ".vscode/tasks/'Prepare regexp.jison'.sh"
+			"type": "shell", "problemMatcher": [],
+			"command": ".vscode/tasks/'Prepare regexp.jison'.sh",
 		},
 		{
 			"label": "Create regexp.input",
-			"type": "shell",
-			"problemMatcher": [],
-			"command": ".vscode/tasks/'Create regexp.input'.sh"
+			"type": "shell", "problemMatcher": [],
+			"options": {"env": {
+				"permute": "${config:permute}", // vscode tasks env inheritance is impossible?
+			}},
+			"command": ".vscode/tasks/'Create regexp.input'.sh",
+//			"command": "echo empty_class_opens:$empty_class_opens", // vscode tasks env inheritance is impossible?
 		},
 		{
 			"label": "Create regexp.json",
-			"type": "shell",
-			"problemMatcher": [],
-			"options": {
-				"env": {
-					"permute": "1",
-					"entities_are_calls": "1",
-					"calls_use_metachars": "0",
-					"empty_class_opens": "${config:empty_class_opens}"
-				}
-			},
-			"command": ".vscode/tasks/'Create regexp.json'.sh"
+			"type": "shell", "problemMatcher": [],
+			"options": {"env": { // vscode tasks env inheritance is impossible?
+				"permute": "${config:permute}",
+				"permutations_use_metachars": "${config:permutations_use_metachars}",
+				"entities_are_calls": "${config:entities_are_calls}",
+				"calls_use_metachars": "${config:calls_use_metachars}",
+				"empty_class_opens": "${config:empty_class_opens}",
+			}},
+			"command": ".vscode/tasks/'Create regexp.json'.sh",
+//			"command": "echo empty_class_opens:$empty_class_opens", // vscode tasks env inheritance is impossible?
 		},
 		{
 			"label": "Prepare regexp",
 			"dependsOn": [
 				"Prepare regexp.jison",
 				"Create regexp.json",
-				"Create regexp.input"
+				"Create regexp.input",
 			],
-			"type": "shell",
-			"problemMatcher": [],
-			"command": "echo Prepare regexp dependsOn comlete"
+			"type": "shell", "problemMatcher": [],
+			"command": "echo Prepare regexp dependsOn comlete",
 		},
 		{
 			"label": "Build .vscode/tmp/regexp.js with examples/regexp.js and macports",
 			"dependsOn": "Prepare regexp.jison",
-			"type": "shell",
-			"problemMatcher": [],
-			"options": {
-				"env": {
-					"require_bluelephant_excerpt": "1"
-				}
-			},
-			"command": "/opt/local/bin/bash .vscode/tasks/'Build .vscode:tmp:regexp.js with examples:regexp.js and macports'.sh"
+			"type": "shell", "problemMatcher": [],
+			"options": {"env": {
+				"require_bluelephant_excerpt": "1",
+			}},
+			"command": "/opt/local/bin/bash .vscode/tasks/'Build .vscode:tmp:regexp.js with examples:regexp.js and macports'.sh",
+//			"command": "echo empty_class_opens:$empty_class_opens", // vscode tasks env inheritance is impossible?
+			// macports absolute path cause-of: vscode doesn't pick up my env
 		},
 		{
 			"label": "Build regexp with examples/regexp.js and macports",
 			"dependsOn": [
 				"Build .vscode/tmp/regexp.js with examples/regexp.js and macports",
 				"Create regexp.json",
-				"Create regexp.input"
+				"Create regexp.input",
 			],
-			"type": "shell",
-			"problemMatcher": [],
-			"command": "echo Build regexp with examples/regexp.js and macports dependsOn comlete"
+			"type": "shell", "problemMatcher": [],
+			"command": "echo Build regexp with examples/regexp.js and macports dependsOn comlete",
 		},
 		{
 			"label": "Build .vscode/tmp/regexp.min.js with examples/regexp.js and macports",
 			"dependsOn": "Prepare regexp.jison",
-			"type": "shell",
-			"problemMatcher": [],
-			"options": {
-				"env": {
-					"require_bluelephant_excerpt": "1",
-					"uglifyjs": "1"
-				}
-			},
-			"command": "/opt/local/bin/bash .vscode/tasks/'Build .vscode:tmp:regexp.js with examples:regexp.js and macports'.sh"
+			"type": "shell", "problemMatcher": [],
+			"options": {"env": {
+				"require_bluelephant_excerpt": "1",
+				"uglifyjs": "1",
+			}},
+			"command": "/opt/local/bin/bash .vscode/tasks/'Build .vscode:tmp:regexp.js with examples:regexp.js and macports'.sh",
+//			"command": "echo empty_class_opens:$empty_class_opens", // vscode tasks env inheritance is impossible?
+			// macports absolute path cause-of: vscode doesn't pick up my env
 		},
 		{
 			"label": "Build regexp.min with examples/regexp.js and macports",
 			"dependsOn": [
 				"Build .vscode/tmp/regexp.min.js with examples/regexp.js and macports",
 				"Create regexp.json",
-				"Create regexp.input"
+				"Create regexp.input",
 			],
-			"type": "shell",
-			"problemMatcher": [],
-			"command": "echo Build regexp.min with examples/regexp.js and macports dependsOn comlete"
-		}
+			"type": "shell", "problemMatcher": [],
+			"command": "echo Build regexp.min with examples/regexp.js and macports dependsOn comlete",
+		},
 	]
 }
